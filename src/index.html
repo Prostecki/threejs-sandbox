@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <title>Three.js Tutorial</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #modal {
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 1em;
+        border-radius: 8px;
+        display: none; /* Initially hidden */
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        pointer-events: none; /* Prevent modal from blocking mouse events */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="modal">
+      <h3>TorusKnot</h3>
+      <p>This is a complex, self-intersecting torus.</p>
+    </div>
+    <script type="module" src="./js/scripts.js"></script>
+  </body>
+</html>
