@@ -101,7 +101,10 @@ const posArray = new Float32Array(particleCount * 3);
 for (let i = 0; i < particleCount * 3; i++) {
   posArray[i] = (Math.random() - 0.5) * 200;
 }
-particleGeometry.setAttribute("position", new THREE.BufferAttribute(posArray, 3));
+particleGeometry.setAttribute(
+  "position",
+  new THREE.BufferAttribute(posArray, 3)
+);
 const particleMaterial = new THREE.PointsMaterial({
   size: 0.05,
   color: 0xffffff,
@@ -157,21 +160,33 @@ const options = {
 };
 
 // Sphere and animation controls
-gui.addColor(options, "sphereColor").onChange((e) => sphere.material.color.set(e));
+gui
+  .addColor(options, "sphereColor")
+  .onChange((e) => sphere.material.color.set(e));
 gui.add(options, "wireframe").onChange((e) => (sphere.material.wireframe = e));
 gui.add(options, "speed", 0, 0.1);
 
 // Spotlight controls
 const lightFolder = gui.addFolder("Spotlight");
 lightFolder.add(options, "angle", 0, 1).onChange((e) => (spotLight.angle = e));
-lightFolder.add(options, "penumbra", 0, 1).onChange((e) => (spotLight.penumbra = e));
-lightFolder.add(options, "intensity", 0, 20).onChange((e) => (spotLight.intensity = e));
+lightFolder
+  .add(options, "penumbra", 0, 1)
+  .onChange((e) => (spotLight.penumbra = e));
+lightFolder
+  .add(options, "intensity", 0, 20)
+  .onChange((e) => (spotLight.intensity = e));
 
 // Bloom controls
 const bloomFolder = gui.addFolder("Bloom");
-bloomFolder.add(options, "bloomThreshold", 0, 1).onChange((value) => (bloomPass.threshold = Number(value)));
-bloomFolder.add(options, "bloomStrength", 0, 3).onChange((value) => (bloomPass.strength = Number(value)));
-bloomFolder.add(options, "bloomRadius", 0, 1).onChange((value) => (bloomPass.radius = Number(value)));
+bloomFolder
+  .add(options, "bloomThreshold", 0, 1)
+  .onChange((value) => (bloomPass.threshold = Number(value)));
+bloomFolder
+  .add(options, "bloomStrength", 0, 3)
+  .onChange((value) => (bloomPass.strength = Number(value)));
+bloomFolder
+  .add(options, "bloomRadius", 0, 1)
+  .onChange((value) => (bloomPass.radius = Number(value)));
 
 //================================================================//
 // ===== INTERACTIVITY (RAYCASTING) =====
